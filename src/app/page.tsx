@@ -103,9 +103,7 @@ export default function Home() {
               -&gt;
             </span>
           </h2>
-          <p className= "text-sm">
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
+
         </a>
       </div>
     </main>

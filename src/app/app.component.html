@@ -1,9 +1,31 @@
 <div class="w-full h-full font-sans text-text">
-  <div class="w-3/6 mx-auto bg-secondary text-center mt-44 rounded-xl">
+  <div class="w-3/6 mx-auto bg-secondary text-center mt-32 rounded-xl">
     <h1 class="pt-4 text-2xl font-semibold">Create a QR-CODE</h1>
     <form action="" method="post" class="flex flex-col p-6">
       <label htmlFor="input" class="p-2 text-xl"> enter website link </label>
-      <input type="text" class="w-4/6 mx-auto p-4 rounded-xl" />
+      <input
+        type="text"
+        class="w-4/6 mx-auto p-4 rounded-xl"
+        [(ngModel)]="userInput"
+        name="userInput"
+      />
     </form>
+    <div class="w-3/6 mx-auto pl-20 pb-2" *ngIf="userInput">
+      <qrcode [qrdata]="userInput" (qrCodeURL)="DownLoad($event)"></qrcode>
+    </div>
+    <div class="p-4" *ngIf="userInput">
+      <a
+        [href]="downloadQrCode"
+        class="group relative inline-flex items-center justify-start overflow-hidden rounded-xl bg-accent px-5 py-3 font-medium transition-all hover:bg-white"
+      >
+        <span
+          class="absolute inset-0 rounded-xl border-0 border-white transition-all duration-100 ease-linear group-hover:border-[25px]"
+        ></span>
+        <span
+          class="relative w-full text-center text-text transition-colors duration-200 ease-in-out group-hover:text-primary"
+          >DownLoad QR Code</span
+        >
+      </a>
+    </div>
   </div>
 </div>

@@ -1,5 +1,5 @@
 <div class="w-full h-full font-sans text-text">
-  <div class="w-3/6 mx-auto bg-secondary text-center mt-32 rounded-xl">
+  <div class="md:w-3/6 mx-auto bg-secondary text-center mt-32 rounded-xl w-5/6">
     <h1 class="pt-4 text-2xl font-semibold">Create a QR-CODE</h1>
     <form action="" method="post" class="flex flex-col p-6">
       <label htmlFor="input" class="p-2 text-xl"> enter website link </label>
@@ -10,8 +10,8 @@
         name="userInput"
       />
     </form>
-    <div class="w-3/6 mx-auto pl-20 pb-2" *ngIf="userInput">
-      <qrcode [qrdata]="userInput" (qrCodeURL)="DownLoad($event)"></qrcode>
+    <div class="w-3/6 mx-auto  text-center pb-2" *ngIf="userInput">
+      <qrcode [qrdata]="userInput" (qrCodeURL)="DownLoad($event)" [width]="150" class="items-center"></qrcode>
     </div>
     <div class="p-4" *ngIf="userInput">
       <a
